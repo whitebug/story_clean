@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: story_core,story_domain
+dependency_overrides:
+  story_core:
+    path: ../story_core
+  story_domain:
+    path: ../story_domain

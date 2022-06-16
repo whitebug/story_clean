@@ -1,0 +1,11 @@
+{
+  "@@locale": "ru",
+  "title": "Покер сторипоинтов",
+  "@notifications": {
+    "description": "Title of the app"
+  },
+  "markAllRead": "Mark all read",
+  "@markAllRead": {
+    "description": "Button text of the home view"
+  }
+}

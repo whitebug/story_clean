@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "380259446181",
+    "project_id": "story-points-b387e",
+    "storage_bucket": "story-points-b387e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380259446181:android:771e1b97a37c0c44664c4c",
+        "android_client_info": {
+          "package_name": "ru.whitebug.story_clean"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380259446181-7sffcres5bkkopvkqek3d15tnrpbqh8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE1lRIwH40nGLlWpAQ90ESuNWZ6JnI6is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380259446181-7sffcres5bkkopvkqek3d15tnrpbqh8m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380259446181-9ido4pao579gqup9qmgm33b2cts2osfs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ru.whitebug.storyClean"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
