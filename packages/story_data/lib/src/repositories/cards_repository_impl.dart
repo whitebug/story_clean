@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:story_core/story_core.dart';
-import 'package:story_data/src/data_sources/data_sources.dart';
+import 'package:story_data/story_data.dart';
 import 'package:story_domain/story_domain.dart';
 
 class CardsRepositoryImpl implements CardsRepository {
@@ -15,16 +15,19 @@ class CardsRepositoryImpl implements CardsRepository {
   });
 
   @override
-  Stream<Either<Failure, List<CardEntity>>> getCards() {
+  Stream<Either<Failure, List<CardModel>>> getCards() {
     return cardsDataSource.getCards().transform(
       StreamTransformer.fromHandlers(
-        handleData: (List<CardEntity> data, EventSink<Either<Failure, List<CardEntity>>> sink) {
-          try {
-            sink.add(Right(data));
-          } on ServerException {
-            sink.add(Left(ServerFailure()));
+        handleData: (List<CardModel> data, EventSink<Either<Failure, List<CardModel>>> sink) async {
+          if (await networkInfo.isConnected()) {
+            sink.add(Right<Failure, List<CardModel>>(data));
+          } else {
+            sink.add(Left<Failure, List<CardModel>>(NetworkFailure()));
           }
         },
+        handleError: (error, stackTrace, sink) {
+          sink.add(Left<Failure, List<CardModel>>(ServerFailure()));
+        }
       ),
     );
   }

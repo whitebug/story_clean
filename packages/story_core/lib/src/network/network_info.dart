@@ -1,6 +1,6 @@
 import 'dart:io';
 
-const String _firebaseCheckAddress = 'https://firebase.google.com/';
+const String _firebaseCheckAddress = 'firebase.google.com';
 
 /// Class to check internet connection
 abstract class NetworkInfo {

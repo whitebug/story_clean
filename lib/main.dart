@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:story_clean/app/locator.dart';
 import 'package:story_data/story_data.dart';
+import 'features/features.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -9,6 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setLocator();
   runApp(const MyApp());
 }
 
@@ -22,7 +26,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MultiBlocProvider(
+        providers: <BlocProvider<Object?>>[
+          BlocProvider<HomePageBloc>(
+            create: (_) => getIt<HomePageBloc>(),
+          ),
+        ],
+        child: const HomePage(),
+      ),
     );
   }
 }
