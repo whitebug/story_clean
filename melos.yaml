@@ -53,7 +53,7 @@ scripts:
       dir-exists:
         - "test/"
 
-  run:buildRunner:
+  buildRunner:
     description: Run the buildRunner to generate sources for the project if package has build_runner dependency
     run: melos exec --concurrency=1 -- "flutter packages pub run build_runner build --delete-conflicting-outputs"
     select-package:

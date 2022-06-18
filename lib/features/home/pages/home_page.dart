@@ -21,10 +21,8 @@ class _HomePageState extends State<HomePage> {
         child: BlocBuilder<HomePageBloc, HomePageState>(
           builder: (context, state) {
             return state.map(
-              loading: (state) => const Center(child: CircularProgressIndicator()),
-              error: (state) => Center(
-                child: Text(state.error),
-              ),
+              loading: (state) => const CircularProgressIndicator(),
+              error: (state) => Text(state.error),
               success: (state) => ListView.builder(
                 itemCount: state.cards.length,
                 itemBuilder: (BuildContext context, int index) {
