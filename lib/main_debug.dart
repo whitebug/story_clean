@@ -4,8 +4,8 @@ import 'package:story_clean/runner.dart';
 void main() {
   AppConfiguration.init(
     configurationMode: ConfigurationMode.debug,
-    configuration: ConfigurationDetails(
-      url: Urls.testUrl,
+    configuration: const ConfigurationDetails(
+      title: 'Стори поинт покер в режиме дебага',
     ),
   );
 

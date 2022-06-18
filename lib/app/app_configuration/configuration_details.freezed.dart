@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ConfigurationDetails {
-  String get url => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ConfigurationDetailsCopyWith<ConfigurationDetails> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $ConfigurationDetailsCopyWith<$Res> {
   factory $ConfigurationDetailsCopyWith(ConfigurationDetails value,
           $Res Function(ConfigurationDetails) then) =
       _$ConfigurationDetailsCopyWithImpl<$Res>;
-  $Res call({String url});
+  $Res call({String title});
 }
 
 /// @nodoc
@@ -42,12 +42,12 @@ class _$ConfigurationDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -60,7 +60,7 @@ abstract class _$$_ConfigurationDetailsCopyWith<$Res>
           $Res Function(_$_ConfigurationDetails) then) =
       __$$_ConfigurationDetailsCopyWithImpl<$Res>;
   @override
-  $Res call({String url});
+  $Res call({String title});
 }
 
 /// @nodoc
@@ -76,12 +76,12 @@ class __$$_ConfigurationDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_ConfigurationDetails(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -90,14 +90,14 @@ class __$$_ConfigurationDetailsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ConfigurationDetails implements _ConfigurationDetails {
-  const _$_ConfigurationDetails({required this.url});
+  const _$_ConfigurationDetails({required this.title});
 
   @override
-  final String url;
+  final String title;
 
   @override
   String toString() {
-    return 'ConfigurationDetails(url: $url)';
+    return 'ConfigurationDetails(title: $title)';
   }
 
   @override
@@ -105,12 +105,12 @@ class _$_ConfigurationDetails implements _ConfigurationDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConfigurationDetails &&
-            const DeepCollectionEquality().equals(other.url, url));
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -120,11 +120,11 @@ class _$_ConfigurationDetails implements _ConfigurationDetails {
 }
 
 abstract class _ConfigurationDetails implements ConfigurationDetails {
-  const factory _ConfigurationDetails({required final String url}) =
+  const factory _ConfigurationDetails({required final String title}) =
       _$_ConfigurationDetails;
 
   @override
-  String get url => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ConfigurationDetailsCopyWith<_$_ConfigurationDetails> get copyWith =>

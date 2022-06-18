@@ -31,9 +31,12 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
               return const HomePageState.error(error: 'server');
             }
           },
-          (List<CardEntity> cards) => HomePageState.success(
-            cards: cards,
-          ),
+          (List<CardEntity> cards) {
+            cards.sort((a, b) => a.points.compareTo(b.points));
+            return HomePageState.success(
+              cards: cards,
+            );
+          },
         );
       },
     );

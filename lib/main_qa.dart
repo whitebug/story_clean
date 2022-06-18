@@ -5,8 +5,8 @@ import 'package:story_clean/runner.dart';
 void main() {
   AppConfiguration.init(
     configurationMode: ConfigurationMode.qa,
-    configuration: ConfigurationDetails(
-      url: Urls.testUrl,
+    configuration: const ConfigurationDetails(
+      title: 'Стори поинт покер в режиме QA',
     ),
   );
 

@@ -5,8 +5,8 @@ import 'package:story_clean/runner.dart';
 void main() {
   AppConfiguration.init(
     configurationMode: ConfigurationMode.release,
-    configuration: ConfigurationDetails(
-      url: Urls.prodUrl,
+    configuration: const ConfigurationDetails(
+      title: 'Стори поинт покер',
     ),
   );
 

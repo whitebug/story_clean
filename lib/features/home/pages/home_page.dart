@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:story_clean/features/home/blocs/home_page_bloc/home_page_bloc.dart';
-import 'package:story_domain/story_domain.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:story_clean/app/app.dart';
+import 'package:story_clean/features/features.dart';
+import 'package:story_clean/features/home/home.dart';
 
+/// Main card game screen
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -11,35 +14,33 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: BlocBuilder<HomePageBloc, HomePageState>(
-          builder: (context, state) {
-            return state.map(
-              loading: (state) => const CircularProgressIndicator(),
-              error: (state) => Text(state.error),
-              success: (state) => ListView.builder(
-                itemCount: state.cards.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final List<CardEntity> cards = state.cards;
-                  return Text('${cards[index].points}');
-                },
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     context.read<HomePageBloc>().add(const HomePageEvent.loadCards());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Text(
+                  AppConfiguration<ConfigurationDetails>.instance().configuration.title,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 130.sp,
+              child: const CardsView(),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

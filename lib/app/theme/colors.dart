@@ -20,6 +20,8 @@ const Color textColorGrey = _black54;
 const Color lightTextGrey = _textGrey;
 const Color black = _black;
 const Color darkColor = _black45;
+const Color master = _green;
+const Color masterDark = _greenDark;
 
 // Main palette (http://www.color-blindness.com/color-name-hue/).
 const Color _oxfordBlue = Color(0xFF263238);
@@ -34,3 +36,5 @@ const Color _textGrey = Color(0xFF9A9A9A);
 const Color _black45 = Colors.black45;
 const Color _black54 = Colors.black54;
 const Color _black = Colors.black;
+const Color _green = Color(0xFF009A6E);
+const Color _greenDark = Color(0xFF006A4A);

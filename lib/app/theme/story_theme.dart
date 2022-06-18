@@ -4,12 +4,13 @@ import 'package:story_clean/app/theme/colors.dart';
 class StoryTheme {
   static ThemeData get light {
     return ThemeData(
+      backgroundColor: master,
       appBarTheme: const AppBarTheme(
         color: greyBackgroundColor,
       ),
       scaffoldBackgroundColor: greyBackgroundColor,
       colorScheme: ColorScheme.fromSwatch(
-        accentColor: greyBackgroundColor,
+        accentColor: white,
       ),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
@@ -20,12 +21,13 @@ class StoryTheme {
 
   static ThemeData get dark {
     return ThemeData(
+      backgroundColor: masterDark,
       appBarTheme: const AppBarTheme(
         color: darkColor,
       ),
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.dark,
-        accentColor: darkColor,
+        accentColor: hintColor,
       ),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
