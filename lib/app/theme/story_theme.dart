@@ -4,7 +4,7 @@ import 'package:story_clean/app/theme/colors.dart';
 class StoryTheme {
   static ThemeData get light {
     return ThemeData(
-      backgroundColor: master,
+      backgroundColor: white,
       appBarTheme: const AppBarTheme(
         color: greyBackgroundColor,
       ),
@@ -21,7 +21,7 @@ class StoryTheme {
 
   static ThemeData get dark {
     return ThemeData(
-      backgroundColor: masterDark,
+      backgroundColor: darkColor,
       appBarTheme: const AppBarTheme(
         color: darkColor,
       ),

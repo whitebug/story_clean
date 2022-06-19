@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:story_clean/app/app_configuration/configuration_mode.dart';
+import 'package:story_clean/app/configuration/configuration.dart';
 
 /// Provides config to the app. T is a return type of a config
 class AppConfiguration<T> implements Listenable {

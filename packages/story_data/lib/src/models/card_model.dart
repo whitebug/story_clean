@@ -8,7 +8,7 @@ part 'card_model.g.dart';
 class CardModel extends CardEntity with _$CardModel {
   const factory CardModel({
     required int points,
-    String? image,
+    int? colorIndex,
   }) = _CardModel;
 
   factory CardModel.fromJson(Map<String, Object?> json) => _$CardModelFromJson(json);

@@ -5,10 +5,10 @@ class CardEntity {
   final int points;
 
   /// Potential image of a card
-  final String? image;
+  final int? colorIndex;
 
   const CardEntity({
     required this.points,
-    this.image,
+    this.colorIndex,
   });
 }

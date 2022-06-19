@@ -21,7 +21,7 @@ CardModel _$CardModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CardModel {
   int get points => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
+  int? get colorIndex => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ mixin _$CardModel {
 abstract class $CardModelCopyWith<$Res> {
   factory $CardModelCopyWith(CardModel value, $Res Function(CardModel) then) =
       _$CardModelCopyWithImpl<$Res>;
-  $Res call({int points, String? image});
+  $Res call({int points, int? colorIndex});
 }
 
 /// @nodoc
@@ -47,17 +47,17 @@ class _$CardModelCopyWithImpl<$Res> implements $CardModelCopyWith<$Res> {
   @override
   $Res call({
     Object? points = freezed,
-    Object? image = freezed,
+    Object? colorIndex = freezed,
   }) {
     return _then(_value.copyWith(
       points: points == freezed
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      colorIndex: colorIndex == freezed
+          ? _value.colorIndex
+          : colorIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -68,7 +68,7 @@ abstract class _$$_CardModelCopyWith<$Res> implements $CardModelCopyWith<$Res> {
           _$_CardModel value, $Res Function(_$_CardModel) then) =
       __$$_CardModelCopyWithImpl<$Res>;
   @override
-  $Res call({int points, String? image});
+  $Res call({int points, int? colorIndex});
 }
 
 /// @nodoc
@@ -84,17 +84,17 @@ class __$$_CardModelCopyWithImpl<$Res> extends _$CardModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? points = freezed,
-    Object? image = freezed,
+    Object? colorIndex = freezed,
   }) {
     return _then(_$_CardModel(
       points: points == freezed
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      colorIndex: colorIndex == freezed
+          ? _value.colorIndex
+          : colorIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -102,7 +102,7 @@ class __$$_CardModelCopyWithImpl<$Res> extends _$CardModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CardModel implements _CardModel {
-  const _$_CardModel({required this.points, this.image});
+  const _$_CardModel({required this.points, this.colorIndex});
 
   factory _$_CardModel.fromJson(Map<String, dynamic> json) =>
       _$$_CardModelFromJson(json);
@@ -110,11 +110,11 @@ class _$_CardModel implements _CardModel {
   @override
   final int points;
   @override
-  final String? image;
+  final int? colorIndex;
 
   @override
   String toString() {
-    return 'CardModel(points: $points, image: $image)';
+    return 'CardModel(points: $points, colorIndex: $colorIndex)';
   }
 
   @override
@@ -123,7 +123,8 @@ class _$_CardModel implements _CardModel {
         (other.runtimeType == runtimeType &&
             other is _$_CardModel &&
             const DeepCollectionEquality().equals(other.points, points) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            const DeepCollectionEquality()
+                .equals(other.colorIndex, colorIndex));
   }
 
   @JsonKey(ignore: true)
@@ -131,7 +132,7 @@ class _$_CardModel implements _CardModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(points),
-      const DeepCollectionEquality().hash(image));
+      const DeepCollectionEquality().hash(colorIndex));
 
   @JsonKey(ignore: true)
   @override
@@ -145,7 +146,7 @@ class _$_CardModel implements _CardModel {
 }
 
 abstract class _CardModel implements CardModel {
-  const factory _CardModel({required final int points, final String? image}) =
+  const factory _CardModel({required final int points, final int? colorIndex}) =
       _$_CardModel;
 
   factory _CardModel.fromJson(Map<String, dynamic> json) =
@@ -154,7 +155,7 @@ abstract class _CardModel implements CardModel {
   @override
   int get points => throw _privateConstructorUsedError;
   @override
-  String? get image => throw _privateConstructorUsedError;
+  int? get colorIndex => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CardModelCopyWith<_$_CardModel> get copyWith =>

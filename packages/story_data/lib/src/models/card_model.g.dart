@@ -8,11 +8,11 @@ part of 'card_model.dart';
 
 _$_CardModel _$$_CardModelFromJson(Map<String, dynamic> json) => _$_CardModel(
       points: json['points'] as int,
-      image: json['image'] as String?,
+      colorIndex: json['colorIndex'] as int?,
     );
 
 Map<String, dynamic> _$$_CardModelToJson(_$_CardModel instance) =>
     <String, dynamic>{
       'points': instance.points,
-      'image': instance.image,
+      'colorIndex': instance.colorIndex,
     };

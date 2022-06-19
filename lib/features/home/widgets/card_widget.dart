@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:story_clean/app/theme/theme.dart';
+import 'package:story_clean/features/home/widgets/cards/cards.dart';
 import 'package:story_domain/story_domain.dart';
+
+// Card size ratio
+const double ratio = 240 / 336;
 
 /// Playing card widget
 class CardWidget extends StatelessWidget {
@@ -10,6 +14,7 @@ class CardWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  /// Info for a card (number of points)
   final CardEntity cardEntity;
 
   @override
@@ -21,11 +26,11 @@ class CardWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: Theme.of(context).backgroundColor,
             borderRadius: BorderRadius.all(
-              Radius.circular(10.sp),
+              Radius.circular(5.sp),
             ),
           ),
           child: SizedBox(
-            width: 80.sp,
+            width: 120.sp * ratio,
             height: 120.sp,
             child: Padding(
               padding: EdgeInsets.all(8.sp),
@@ -36,13 +41,13 @@ class CardWidget extends StatelessWidget {
                     children: [
                       Text(
                         '${cardEntity.points}',
-                        style: textBold12White,
+                        style: textBold12,
                       ),
                     ],
                   ),
-                  Text(
-                    '${cardEntity.points}',
-                    style: textBold16White,
+                  CardImage(
+                    imageSide: 30.sp,
+                    cardColorIndex: cardEntity.colorIndex?? 0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -51,7 +56,7 @@ class CardWidget extends StatelessWidget {
                         quarterTurns: 2,
                         child: Text(
                           '${cardEntity.points}',
-                          style: textBold12White,
+                          style: textBold12,
                         ),
                       ),
                     ],
