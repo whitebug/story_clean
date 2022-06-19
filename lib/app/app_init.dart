@@ -11,7 +11,7 @@ class AppInit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter();
+    final appRouter = AppRouter(authGuard: AuthGuard());
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,

@@ -36,5 +36,6 @@ TextStyle textMedium40 = textMedium.copyWith(fontSize: 40.0);
 //Bold
 TextStyle textBold = _text.copyWith(fontWeight: FontWeight.bold);
 TextStyle textBold12 = textBold.copyWith(fontSize: 12.0);
+TextStyle textBold15 = textBold.copyWith(fontSize: 15.0);
 TextStyle textBold12White = textBold12.copyWith(color: white);
 TextStyle textBold16White = textBold.copyWith(fontSize: 16, color: white);

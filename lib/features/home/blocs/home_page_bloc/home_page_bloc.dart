@@ -16,9 +16,13 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     required this.getCardListUseCase,
   }) : super(const HomePageState.loading()) {
     on<_HomePageLoadCardsEvent>(_getCards);
+    on<_HomePageChooseCardEvent>(_chooseCard);
   }
 
-  FutureOr<void> _getCards(_HomePageLoadCardsEvent event, Emitter<HomePageState> emit) async {
+  FutureOr<void> _getCards(
+    _HomePageLoadCardsEvent event,
+    Emitter<HomePageState> emit,
+  ) async {
     final Stream<Either<Failure, List<CardEntity>>> streamEither = getCardListUseCase(NoParams());
     await emit.forEach(
       streamEither,
@@ -40,5 +44,15 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
         );
       },
     );
+  }
+
+  FutureOr<void> _chooseCard(
+    _HomePageChooseCardEvent event,
+    Emitter<HomePageState> emit,
+  ) {
+    if (state is HomePageSuccessState) {
+      final currentState = state as HomePageSuccessState;
+      emit(currentState.copyWith(selectedCard: event.card));
+    }
   }
 }

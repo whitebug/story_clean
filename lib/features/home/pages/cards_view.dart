@@ -27,8 +27,12 @@ class CardsView extends StatelessWidget {
     return BlocBuilder<HomePageBloc, HomePageState>(
       builder: (context, state) {
         return state.map(
-          loading: (state) => const CircularProgressIndicator(),
-          error: (state) => Text(state.error),
+          loading: (state) => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          error: (state) => Center(
+            child: Text(state.error),
+          ),
           success: (state) => ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: state.cards.length,
@@ -42,6 +46,11 @@ class CardsView extends StatelessWidget {
                   ),
                   child: CardWidget(
                     cardEntity: cards[index],
+                    onPressed: () => context.read<HomePageBloc>().add(
+                          HomePageEvent.chooseCard(
+                            card: cards[index],
+                          ),
+                        ),
                   ),
                 ),
               );

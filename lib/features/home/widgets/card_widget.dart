@@ -10,21 +10,26 @@ const double ratio = 240 / 336;
 /// Playing card widget
 class CardWidget extends StatelessWidget {
   const CardWidget({
-    required this.cardEntity,
+    this.cardEntity,
+    this.onPressed,
     Key? key,
   }) : super(key: key);
 
   /// Info for a card (number of points)
-  final CardEntity cardEntity;
+  final CardEntity? cardEntity;
+
+  /// Tap on a card
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: onPressed,
       child: FocusableActionDetector(
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
+            color: theme.backgroundColor,
             borderRadius: BorderRadius.all(
               Radius.circular(5.sp),
             ),
@@ -34,35 +39,44 @@ class CardWidget extends StatelessWidget {
             height: 120.sp,
             child: Padding(
               padding: EdgeInsets.all(8.sp),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        '${cardEntity.points}',
-                        style: textBold12,
-                      ),
-                    ],
-                  ),
-                  CardImage(
-                    imageSide: 30.sp,
-                    cardColorIndex: cardEntity.colorIndex?? 0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      RotatedBox(
-                        quarterTurns: 2,
-                        child: Text(
-                          '${cardEntity.points}',
-                          style: textBold12,
+              child: cardEntity != null
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              '${cardEntity!.points}',
+                              style: textBold15,
+                            ),
+                          ],
+                        ),
+                        CardImage(
+                          imageSide: 30.sp,
+                          cardColorIndex: cardEntity!.colorIndex ?? 0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 2,
+                              child: Text(
+                                '${cardEntity!.points}',
+                                style: textBold15,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  : DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: colorAccent,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5.sp),
                         ),
                       ),
-                    ],
-                  )
-                ],
-              ),
+                    ),
             ),
           ),
         ),

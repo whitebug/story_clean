@@ -19,32 +19,38 @@ mixin _$HomePageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadCards,
+    required TResult Function(CardEntity card) chooseCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HomePageLoadCardsEvent value) loadCards,
+    required TResult Function(_HomePageChooseCardEvent value) chooseCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,6 +117,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadCards,
+    required TResult Function(CardEntity card) chooseCard,
   }) {
     return loadCards();
   }
@@ -119,6 +126,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
   }) {
     return loadCards?.call();
   }
@@ -127,6 +135,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
     required TResult orElse(),
   }) {
     if (loadCards != null) {
@@ -139,6 +148,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HomePageLoadCardsEvent value) loadCards,
+    required TResult Function(_HomePageChooseCardEvent value) chooseCard,
   }) {
     return loadCards(this);
   }
@@ -147,6 +157,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
   }) {
     return loadCards?.call(this);
   }
@@ -155,6 +166,7 @@ class _$_HomePageLoadCardsEvent implements _HomePageLoadCardsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
     required TResult orElse(),
   }) {
     if (loadCards != null) {
@@ -169,26 +181,165 @@ abstract class _HomePageLoadCardsEvent implements HomePageEvent {
 }
 
 /// @nodoc
+abstract class _$$_HomePageChooseCardEventCopyWith<$Res> {
+  factory _$$_HomePageChooseCardEventCopyWith(_$_HomePageChooseCardEvent value,
+          $Res Function(_$_HomePageChooseCardEvent) then) =
+      __$$_HomePageChooseCardEventCopyWithImpl<$Res>;
+  $Res call({CardEntity card});
+}
+
+/// @nodoc
+class __$$_HomePageChooseCardEventCopyWithImpl<$Res>
+    extends _$HomePageEventCopyWithImpl<$Res>
+    implements _$$_HomePageChooseCardEventCopyWith<$Res> {
+  __$$_HomePageChooseCardEventCopyWithImpl(_$_HomePageChooseCardEvent _value,
+      $Res Function(_$_HomePageChooseCardEvent) _then)
+      : super(_value, (v) => _then(v as _$_HomePageChooseCardEvent));
+
+  @override
+  _$_HomePageChooseCardEvent get _value =>
+      super._value as _$_HomePageChooseCardEvent;
+
+  @override
+  $Res call({
+    Object? card = freezed,
+  }) {
+    return _then(_$_HomePageChooseCardEvent(
+      card: card == freezed
+          ? _value.card
+          : card // ignore: cast_nullable_to_non_nullable
+              as CardEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomePageChooseCardEvent implements _HomePageChooseCardEvent {
+  const _$_HomePageChooseCardEvent({required this.card});
+
+  @override
+  final CardEntity card;
+
+  @override
+  String toString() {
+    return 'HomePageEvent.chooseCard(card: $card)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_HomePageChooseCardEvent &&
+            const DeepCollectionEquality().equals(other.card, card));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(card));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_HomePageChooseCardEventCopyWith<_$_HomePageChooseCardEvent>
+      get copyWith =>
+          __$$_HomePageChooseCardEventCopyWithImpl<_$_HomePageChooseCardEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadCards,
+    required TResult Function(CardEntity card) chooseCard,
+  }) {
+    return chooseCard(card);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
+  }) {
+    return chooseCard?.call(card);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadCards,
+    TResult Function(CardEntity card)? chooseCard,
+    required TResult orElse(),
+  }) {
+    if (chooseCard != null) {
+      return chooseCard(card);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomePageLoadCardsEvent value) loadCards,
+    required TResult Function(_HomePageChooseCardEvent value) chooseCard,
+  }) {
+    return chooseCard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
+  }) {
+    return chooseCard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomePageLoadCardsEvent value)? loadCards,
+    TResult Function(_HomePageChooseCardEvent value)? chooseCard,
+    required TResult orElse(),
+  }) {
+    if (chooseCard != null) {
+      return chooseCard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomePageChooseCardEvent implements HomePageEvent {
+  const factory _HomePageChooseCardEvent({required final CardEntity card}) =
+      _$_HomePageChooseCardEvent;
+
+  CardEntity get card => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_HomePageChooseCardEventCopyWith<_$_HomePageChooseCardEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomePageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<CardEntity> cards) success,
+    required TResult Function(List<CardEntity> cards, CardEntity? selectedCard)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -276,7 +427,8 @@ class _$HomePageLoadingState implements HomePageLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<CardEntity> cards) success,
+    required TResult Function(List<CardEntity> cards, CardEntity? selectedCard)
+        success,
   }) {
     return loading();
   }
@@ -286,7 +438,7 @@ class _$HomePageLoadingState implements HomePageLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
   }) {
     return loading?.call();
   }
@@ -296,7 +448,7 @@ class _$HomePageLoadingState implements HomePageLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -412,7 +564,8 @@ class _$HomePageErrorState implements HomePageErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<CardEntity> cards) success,
+    required TResult Function(List<CardEntity> cards, CardEntity? selectedCard)
+        success,
   }) {
     return error(this.error);
   }
@@ -422,7 +575,7 @@ class _$HomePageErrorState implements HomePageErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
   }) {
     return error?.call(this.error);
   }
@@ -432,7 +585,7 @@ class _$HomePageErrorState implements HomePageErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -491,7 +644,7 @@ abstract class _$$HomePageSuccessStateCopyWith<$Res> {
   factory _$$HomePageSuccessStateCopyWith(_$HomePageSuccessState value,
           $Res Function(_$HomePageSuccessState) then) =
       __$$HomePageSuccessStateCopyWithImpl<$Res>;
-  $Res call({List<CardEntity> cards});
+  $Res call({List<CardEntity> cards, CardEntity? selectedCard});
 }
 
 /// @nodoc
@@ -508,12 +661,17 @@ class __$$HomePageSuccessStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cards = freezed,
+    Object? selectedCard = freezed,
   }) {
     return _then(_$HomePageSuccessState(
       cards: cards == freezed
           ? _value._cards
           : cards // ignore: cast_nullable_to_non_nullable
               as List<CardEntity>,
+      selectedCard: selectedCard == freezed
+          ? _value.selectedCard
+          : selectedCard // ignore: cast_nullable_to_non_nullable
+              as CardEntity?,
     ));
   }
 }
@@ -521,7 +679,8 @@ class __$$HomePageSuccessStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomePageSuccessState implements HomePageSuccessState {
-  const _$HomePageSuccessState({required final List<CardEntity> cards})
+  const _$HomePageSuccessState(
+      {required final List<CardEntity> cards, this.selectedCard})
       : _cards = cards;
 
   final List<CardEntity> _cards;
@@ -532,8 +691,11 @@ class _$HomePageSuccessState implements HomePageSuccessState {
   }
 
   @override
+  final CardEntity? selectedCard;
+
+  @override
   String toString() {
-    return 'HomePageState.success(cards: $cards)';
+    return 'HomePageState.success(cards: $cards, selectedCard: $selectedCard)';
   }
 
   @override
@@ -541,12 +703,16 @@ class _$HomePageSuccessState implements HomePageSuccessState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomePageSuccessState &&
-            const DeepCollectionEquality().equals(other._cards, _cards));
+            const DeepCollectionEquality().equals(other._cards, _cards) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedCard, selectedCard));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cards));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_cards),
+      const DeepCollectionEquality().hash(selectedCard));
 
   @JsonKey(ignore: true)
   @override
@@ -559,9 +725,10 @@ class _$HomePageSuccessState implements HomePageSuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<CardEntity> cards) success,
+    required TResult Function(List<CardEntity> cards, CardEntity? selectedCard)
+        success,
   }) {
-    return success(cards);
+    return success(cards, selectedCard);
   }
 
   @override
@@ -569,9 +736,9 @@ class _$HomePageSuccessState implements HomePageSuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
   }) {
-    return success?.call(cards);
+    return success?.call(cards, selectedCard);
   }
 
   @override
@@ -579,11 +746,11 @@ class _$HomePageSuccessState implements HomePageSuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<CardEntity> cards)? success,
+    TResult Function(List<CardEntity> cards, CardEntity? selectedCard)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(cards);
+      return success(cards, selectedCard);
     }
     return orElse();
   }
@@ -624,10 +791,12 @@ class _$HomePageSuccessState implements HomePageSuccessState {
 }
 
 abstract class HomePageSuccessState implements HomePageState {
-  const factory HomePageSuccessState({required final List<CardEntity> cards}) =
-      _$HomePageSuccessState;
+  const factory HomePageSuccessState(
+      {required final List<CardEntity> cards,
+      final CardEntity? selectedCard}) = _$HomePageSuccessState;
 
   List<CardEntity> get cards => throw _privateConstructorUsedError;
+  CardEntity? get selectedCard => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$HomePageSuccessStateCopyWith<_$HomePageSuccessState> get copyWith =>
       throw _privateConstructorUsedError;

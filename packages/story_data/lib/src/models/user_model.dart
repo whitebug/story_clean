@@ -8,7 +8,8 @@ part 'user_model.g.dart';
 class UserModel extends UserEntity with _$UserModel {
   const factory UserModel({
     required String userName,
-    required String userAvatar,
+    required String userEmail,
+    String? userAvatar,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, Object?> json) => _$UserModelFromJson(json);
