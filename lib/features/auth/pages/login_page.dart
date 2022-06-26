@@ -20,9 +20,33 @@ class LoginPage extends StatelessWidget {
       body: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
           return state.map(
-            loading: (state) => const Center(child: CircularProgressIndicator()),
+            loading: (state) {
+              return Center(
+                child: ElevatedButton(
+                  onPressed: () async {
+                    context.read<AuthBloc>().add(const AuthEvent.loginWithGoogle());
+                    onLoginResult!(true);
+                  },
+                  child: Text(l10n.loginWithGoogle),
+                ),
+              );
+            },
             error: (state) => Center(child: Text(state.failure.toString())),
-            logout: (state) => const Center(child: Text('Logout')),
+            logout: (state) => Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const Text('Logout'),
+                  ElevatedButton(
+                    onPressed: () async {
+                      context.read<AuthBloc>().add(const AuthEvent.loginWithGoogle());
+                      onLoginResult!(true);
+                    },
+                    child: Text(l10n.loginWithGoogle),
+                  ),
+                ],
+              ),
+            ),
             authenticated: (state) {
               return Center(
                 child: ElevatedButton(
@@ -35,7 +59,6 @@ class LoginPage extends StatelessWidget {
               );
             },
           );
-
         },
       ),
     );

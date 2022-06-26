@@ -21,16 +21,13 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
 
   final GetCardListUseCase getCardListUseCase;
 
-  final StreamController<Either<Failure, List<CardEntity>>> _cardStreamController =
-      StreamController<Either<Failure, List<CardEntity>>>.broadcast();
-
   FutureOr<void> _getCards(
     _HomePageLoadCardsEvent event,
     Emitter<HomePageState> emit,
   ) async {
-    _cardStreamController.addStream(getCardListUseCase(NoParams()).asBroadcastStream());
+    final Stream<Either<Failure, List<CardEntity>>> streamEither = getCardListUseCase(NoParams());
     await emit.forEach(
-      _cardStreamController.stream,
+      streamEither,
       onData: (Either<Failure, List<CardEntity>> data) {
         return data.fold(
           (failure) {
@@ -59,11 +56,5 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
       final currentState = state as HomePageSuccessState;
       emit(currentState.copyWith(selectedCard: event.card));
     }
-  }
-
-  @override
-  Future<void> close() {
-    _cardStreamController.close();
-    return super.close();
   }
 }
