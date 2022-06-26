@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:story_clean/app/app.dart';
-import 'package:story_clean/features/home/home.dart';
+import 'package:story_clean/features/features.dart';
 import 'package:story_clean/l10n/l10n.dart';
 
 class AppInit extends StatelessWidget {
@@ -21,6 +21,9 @@ class AppInit extends StatelessWidget {
           providers: <BlocProvider<Object?>>[
             BlocProvider<HomePageBloc>(
               create: (_) => getIt<HomePageBloc>(),
+            ),
+            BlocProvider<AuthBloc>(
+              create: (_) => getIt<AuthBloc>(),
             ),
           ],
           child: MaterialApp.router(

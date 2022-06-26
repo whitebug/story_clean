@@ -16,4 +16,11 @@ class CardModel extends CardEntity with _$CardModel {
   static List<CardModel> fromJsonToList(dynamic data) {
     return (data as List).map((e) => CardModel.fromJson(e as Map<String, dynamic>)).toList(growable: false);
   }
+
+  factory CardModel.fromEntity(CardEntity entity) {
+    return CardModel(
+      points: entity.points,
+      colorIndex: entity.colorIndex,
+    );
+  }
 }

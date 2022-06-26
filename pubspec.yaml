@@ -13,7 +13,6 @@ dependencies:
   cloud_firestore: ^3.1.17
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  google_sign_in: ^5.3.3
   firebase_auth: ^3.3.19
   firebase_core: ^1.17.1
   flutter:
@@ -25,7 +24,9 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.5.3+2
   get_it: ^7.2.0
+  google_sign_in: ^5.3.3
   intl: ^0.17.0
+  shared_preferences: ^2.0.15
   story_core:
     path: 'packages/story_core'
   story_data:

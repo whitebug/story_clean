@@ -7,8 +7,8 @@ part of 'user_model.dart';
 // **************************************************************************
 
 _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
-      userName: json['userName'] as String,
-      userEmail: json['userEmail'] as String,
+      userName: json['userName'] as String?,
+      userEmail: json['userEmail'] as String?,
       userAvatar: json['userAvatar'] as String?,
     );
 

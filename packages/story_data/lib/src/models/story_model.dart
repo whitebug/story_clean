@@ -16,4 +16,11 @@ class StoryModel extends StoryEntity with _$StoryModel {
   static List<StoryModel> fromJsonToList(dynamic data) {
     return (data as List).map((e) => StoryModel.fromJson(e as Map<String, dynamic>)).toList(growable: false);
   }
+
+  factory StoryModel.fromEntity(StoryEntity entity) {
+    return StoryModel(
+      storyTitle: entity.storyTitle,
+      storyDescription: entity.storyDescription,
+    );
+  }
 }

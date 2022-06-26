@@ -21,3 +21,9 @@ class LocalStorageFailure extends Failure {
   @override
   List<Object?> get props => [];
 }
+
+/// Failures that happens in authentication
+class AuthFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}

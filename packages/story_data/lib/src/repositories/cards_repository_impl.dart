@@ -17,18 +17,21 @@ class CardsRepositoryImpl implements CardsRepository {
   @override
   Stream<Either<Failure, List<CardModel>>> getCards() {
     return cardsDataSource.getCards().transform(
-      StreamTransformer.fromHandlers(
-        handleData: (List<CardModel> data, EventSink<Either<Failure, List<CardModel>>> sink) async {
-          if (await networkInfo.isConnected()) {
-            sink.add(Right<Failure, List<CardModel>>(data));
-          } else {
-            sink.add(Left<Failure, List<CardModel>>(NetworkFailure()));
-          }
-        },
-        handleError: (error, stackTrace, sink) {
-          sink.add(Left<Failure, List<CardModel>>(ServerFailure()));
-        }
-      ),
-    );
+          StreamTransformer.fromHandlers(
+            handleData: (
+              List<CardModel> data,
+              EventSink<Either<Failure, List<CardModel>>> sink,
+            ) async {
+              if (await networkInfo.isConnected()) {
+                sink.add(Right<Failure, List<CardModel>>(data));
+              } else {
+                sink.add(Left<Failure, List<CardModel>>(NetworkFailure()));
+              }
+            },
+            handleError: (error, stackTrace, sink) {
+              sink.add(Left<Failure, List<CardModel>>(ServerFailure()));
+            },
+          ),
+        );
   }
 }

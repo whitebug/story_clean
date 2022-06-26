@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:story_clean/features/features.dart';
+import 'package:story_clean/l10n/l10n.dart';
 
 /// Login
 class LoginPage extends StatelessWidget {
@@ -12,14 +15,28 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            onLoginResult!(true);
-          },
-          child: const Text('login'),
-        ),
+      body: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return state.map(
+            loading: (state) => const Center(child: CircularProgressIndicator()),
+            error: (state) => Center(child: Text(state.failure.toString())),
+            logout: (state) => const Center(child: Text('Logout')),
+            authenticated: (state) {
+              return Center(
+                child: ElevatedButton(
+                  onPressed: () async {
+                    context.read<AuthBloc>().add(const AuthEvent.loginWithGoogle());
+                    onLoginResult!(true);
+                  },
+                  child: Text(l10n.loginWithGoogle),
+                ),
+              );
+            },
+          );
+
+        },
       ),
     );
   }

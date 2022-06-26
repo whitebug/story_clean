@@ -1,11 +1,23 @@
 {
   "@@locale": "en",
   "title": "Story Points Poker",
-  "@notifications": {
+  "@title": {
     "description": "Title of the app"
   },
   "markAllRead": "Mark all read",
   "@markAllRead": {
     "description": "Button text of the home view"
+  },
+  "loginWithGoogle": "Login with Google account",
+  "@loginWithGoogle": {
+    "description": "Login button text"
+  },
+  "loginWithEmail": "Login with email",
+  "@loginWithEmail": {
+    "description": "Login button text"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout button text"
   }
 }

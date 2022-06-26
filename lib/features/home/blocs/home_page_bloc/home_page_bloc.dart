@@ -10,8 +10,8 @@ part 'home_page_event.dart';
 part 'home_page_state.dart';
 part 'home_page_bloc.freezed.dart';
 
+/// Presentation logic for [HomePage]
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
-  final GetCardListUseCase getCardListUseCase;
   HomePageBloc({
     required this.getCardListUseCase,
   }) : super(const HomePageState.loading()) {
@@ -19,13 +19,18 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
     on<_HomePageChooseCardEvent>(_chooseCard);
   }
 
+  final GetCardListUseCase getCardListUseCase;
+
+  final StreamController<Either<Failure, List<CardEntity>>> _cardStreamController =
+      StreamController<Either<Failure, List<CardEntity>>>.broadcast();
+
   FutureOr<void> _getCards(
     _HomePageLoadCardsEvent event,
     Emitter<HomePageState> emit,
   ) async {
-    final Stream<Either<Failure, List<CardEntity>>> streamEither = getCardListUseCase(NoParams());
+    _cardStreamController.addStream(getCardListUseCase(NoParams()).asBroadcastStream());
     await emit.forEach(
-      streamEither,
+      _cardStreamController.stream,
       onData: (Either<Failure, List<CardEntity>> data) {
         return data.fold(
           (failure) {
@@ -54,5 +59,11 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
       final currentState = state as HomePageSuccessState;
       emit(currentState.copyWith(selectedCard: event.card));
     }
+  }
+
+  @override
+  Future<void> close() {
+    _cardStreamController.close();
+    return super.close();
   }
 }

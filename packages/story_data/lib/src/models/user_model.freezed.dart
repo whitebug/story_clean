@@ -20,8 +20,8 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  String get userName => throw _privateConstructorUsedError;
-  String get userEmail => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
+  String? get userEmail => throw _privateConstructorUsedError;
   String? get userAvatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ mixin _$UserModel {
 abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
-  $Res call({String userName, String userEmail, String? userAvatar});
+  $Res call({String? userName, String? userEmail, String? userAvatar});
 }
 
 /// @nodoc
@@ -55,11 +55,11 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userEmail: userEmail == freezed
           ? _value.userEmail
           : userEmail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userAvatar: userAvatar == freezed
           ? _value.userAvatar
           : userAvatar // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
           _$_UserModel value, $Res Function(_$_UserModel) then) =
       __$$_UserModelCopyWithImpl<$Res>;
   @override
-  $Res call({String userName, String userEmail, String? userAvatar});
+  $Res call({String? userName, String? userEmail, String? userAvatar});
 }
 
 /// @nodoc
@@ -97,11 +97,11 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userEmail: userEmail == freezed
           ? _value.userEmail
           : userEmail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userAvatar: userAvatar == freezed
           ? _value.userAvatar
           : userAvatar // ignore: cast_nullable_to_non_nullable
@@ -113,16 +113,15 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
-  const _$_UserModel(
-      {required this.userName, required this.userEmail, this.userAvatar});
+  const _$_UserModel({this.userName, this.userEmail, this.userAvatar});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
 
   @override
-  final String userName;
+  final String? userName;
   @override
-  final String userEmail;
+  final String? userEmail;
   @override
   final String? userAvatar;
 
@@ -163,17 +162,17 @@ class _$_UserModel implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
-      {required final String userName,
-      required final String userEmail,
+      {final String? userName,
+      final String? userEmail,
       final String? userAvatar}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
 
   @override
-  String get userName => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
   @override
-  String get userEmail => throw _privateConstructorUsedError;
+  String? get userEmail => throw _privateConstructorUsedError;
   @override
   String? get userAvatar => throw _privateConstructorUsedError;
   @override
